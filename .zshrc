@@ -42,7 +42,6 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}!"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[green]%}?"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 autoload predict-on 
-predict-on
 
 zle -N predict-toggle
 bindkey '^Z'   predict-toggle
@@ -67,6 +66,8 @@ alias gm='git commit -m'
 alias gma='git commit --amend'
 alias gb='git branch'
 alias gc='git checkout'
+alias gst='git stash'
+alias gstp='git stash pop'
 alias gcdp='git checkout develop && git pull'
 alias gffs='git flow feature start'
 alias gffp='git flow feature publish'
@@ -78,6 +79,7 @@ alias gfffc='gfff ${$(git rev-parse --abbrev-ref HEAD)#feature/}'
 alias gr='git rebase'
 alias grd='git rebase develop'
 alias gpu='git pull'
+alias gpur='git pull --rebase'
 alias gcl='git clone'
 alias gta='git tag -a -m'
 alias gf='git reflog'
