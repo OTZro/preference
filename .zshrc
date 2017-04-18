@@ -107,6 +107,21 @@ alias glg1='git lg1'
 alias glg2='git lg2'
 alias glg='git lg'
  
+
+# -------------------------------------------------------------------
+# Git aliases
+# -------------------------------------------------------------------
+
+alias dps='docker ps'
+alias dkill='docker kill'
+alias dkillall='docker kill $(docker ps -q)'
+alias drm='docker rm'
+alias drmall='docker rm $(docker ps -a -q)'
+
+alias dc='docker-compose'
+alias dcu='docker-compose up'
+alias dcd='docker-compose down'
+
 # git helper
 function addAndStatus() { git add -A "$@"; git status; }
 
