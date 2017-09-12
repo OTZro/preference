@@ -69,6 +69,7 @@ function git_prompt_info() {
  
 alias ga='addAndStatus'
 alias gp='git push'
+alias gpb='git push -u origin $(git rev-parse --abbrev-ref HEAD)'
 alias gl='tig log'
 alias gs='git status'
 alias ts='tig status'
