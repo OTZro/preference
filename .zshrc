@@ -171,3 +171,5 @@ source /usr/local/opt/nvm/nvm.sh
 # -------------------------------------------------------------------
 export GOPATH=~/go
 export PATH=$PATH:$GOPATH/bin
+
+export PATH=/Users/ming-changsung/.nvm/versions/node/v6.0.0/bin:/usr/local/Cellar/php56/5.6.31_7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin:/Users/ming-changsung/.composer/vendor/bin:/Users/ming-changsung/go/bin:/Users/ming-changsung/.vimpkg/bin
