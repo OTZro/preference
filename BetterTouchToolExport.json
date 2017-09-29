@@ -1,0 +1,252 @@
+{
+  "BTTPresetName" : "BTT setting_2A833ECD-C2A7-44CF-8BB3-74B9A37A145A",
+  "BTTPresetUUID" : "703FF75F-B39A-41AD-81BF-4242B0F15D7A",
+  "BTTPresetContent" : [
+    {
+      "BTTAppBundleIdentifier" : "BT.G",
+      "BTTAppName" : "Global",
+      "BTTAppSpecificSettings" : {
+
+      },
+      "BTTTriggers" : [
+        {
+          "BTTTriggerType" : 102,
+          "BTTTriggerTypeDescription" : "3 Finger Swipe Up",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 63,
+          "BTTPredefinedActionName" : "End (End of the Page)",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 5
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 8
+        },
+        {
+          "BTTTriggerType" : 611,
+          "BTTTriggerTypeDescription" : "Move Mouse To Bottom Left Corner",
+          "BTTTriggerClass" : "BTTTriggerTypeOtherTriggers",
+          "BTTPredefinedActionType" : 115,
+          "BTTPredefinedActionName" : "Open Launchpad",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 1
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 5,
+          "BTTPredefinedActionName" : "Mission Control",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 13,
+          "BTTShortcutModifierKeys" : 524288,
+          "BTTOrder" : 5
+        },
+        {
+          "BTTTriggerType" : 138,
+          "BTTTriggerTypeDescription" : "TipTap Middle (2 Fingers Fix)",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTShortcutToSend" : "55,17",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 4
+        },
+        {
+          "BTTTriggerType" : 101,
+          "BTTTriggerTypeDescription" : "3 Finger Swipe Right",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTShortcutToSend" : "56,55,33",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 1
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 158,
+          "BTTPredefinedActionName" : "Lock Screen",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 37,
+          "BTTShortcutModifierKeys" : 524288,
+          "BTTOrder" : 1
+        },
+        {
+          "BTTTriggerType" : 132,
+          "BTTTriggerTypeDescription" : "TipTap Left (2 Fingers Fix)",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 1,
+          "BTTPredefinedActionName" : "Middle Click",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 7
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 6,
+          "BTTPredefinedActionName" : "Application Expose",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 1,
+          "BTTShortcutModifierKeys" : 524288,
+          "BTTOrder" : 6
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeSiriRemote",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 0
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 140,
+          "BTTPredefinedActionName" : "Show\/Hide Mouse Cursor",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 4,
+          "BTTShortcutModifierKeys" : 524288,
+          "BTTOrder" : 2
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 114,
+          "BTTPredefinedActionName" : "Move Right a Space",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 2,
+          "BTTShortcutModifierKeys" : 524288,
+          "BTTOrder" : 3
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 14,
+          "BTTPredefinedActionName" : "Sleep Computer",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 35,
+          "BTTShortcutModifierKeys" : 524288,
+          "BTTOrder" : 0
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 23,
+          "BTTPredefinedActionName" : "Play\/Pause",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 109,
+          "BTTShortcutModifierKeys" : 0,
+          "BTTOrder" : 10
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 25,
+          "BTTPredefinedActionName" : "Volume Down",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 98,
+          "BTTShortcutModifierKeys" : 0,
+          "BTTOrder" : 8
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 27,
+          "BTTPredefinedActionName" : "Next",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 103,
+          "BTTShortcutModifierKeys" : 0,
+          "BTTOrder" : 11
+        },
+        {
+          "BTTTriggerType" : 136,
+          "BTTTriggerTypeDescription" : "TipTap Left (3 Fingers Fix)",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTShortcutToSend" : "55,13",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 2
+        },
+        {
+          "BTTTriggerType" : 612,
+          "BTTTriggerTypeDescription" : "Move Mouse To Bottom Right Corner",
+          "BTTTriggerClass" : "BTTTriggerTypeOtherTriggers",
+          "BTTPredefinedActionType" : 5,
+          "BTTPredefinedActionName" : "Mission Control",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 0
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 24,
+          "BTTPredefinedActionName" : "Volume Up",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 100,
+          "BTTShortcutModifierKeys" : 8388608,
+          "BTTOrder" : 7
+        },
+        {
+          "BTTTriggerType" : 100,
+          "BTTTriggerTypeDescription" : "3 Finger Swipe Left",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTShortcutToSend" : "56,55,30",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 0
+        },
+        {
+          "BTTTriggerType" : 103,
+          "BTTTriggerTypeDescription" : "3 Finger Swipe Down",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 62,
+          "BTTPredefinedActionName" : "Home (Beginning of the Page)",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 6
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 113,
+          "BTTPredefinedActionName" : "Move Left a Space",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 0,
+          "BTTShortcutModifierKeys" : 524288,
+          "BTTOrder" : 4
+        },
+        {
+          "BTTTriggerType" : 137,
+          "BTTTriggerTypeDescription" : "TipTap Right (3 Fingers Fix)",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTShortcutToSend" : "55,12",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 3
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 26,
+          "BTTPredefinedActionName" : "Previous",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 101,
+          "BTTShortcutModifierKeys" : 0,
+          "BTTOrder" : 9
+        }
+      ]
+    },
+    {
+      "BTTAppBundleIdentifier" : "jp.naver.line.mac",
+      "BTTAppName" : "LINE",
+      "BTTAppSpecificSettings" : {
+
+      },
+      "BTTTriggers" : [
+        {
+          "BTTTriggerType" : 132,
+          "BTTTriggerTypeDescription" : "TipTap Left (2 Fingers Fix)",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTShortcutToSend" : "53",
+          "BTTEnabled" : 1,
+          "BTTOrder" : 0
+        }
+      ]
+    }
+  ],
+  "BTTPresetSnapAreas" : [
+
+  ]
+}
