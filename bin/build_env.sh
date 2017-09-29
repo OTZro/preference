@@ -18,3 +18,4 @@ if [[ -s "~/.zshrc" ]] ; then
     mv ~/.zshrc ~/.zshrc.bac
 fi
 ln -s ${SCRIPTPATH}/../.zshrc ~/.zshrc
+ln -s ${SCRIPTPATH}/../com.hegenberg.BetterTouchTool.plist ~/Library/Preferences/com.hegenberg.BetterTouchTool.plist
