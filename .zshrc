@@ -83,7 +83,7 @@ alias gc='git checkout'
 alias gst='git stash'
 alias gstp='git stash pop'
 alias gcd='git checkout develop'
-alias gcdp='git checkout develop && git pull'
+alias gcdp='git checkout develop && git pull --rebase'
 alias gffs='git flow feature start'
 alias gffp='git flow feature publish'
 alias gffpc='gffp ${$(git rev-parse --abbrev-ref HEAD)#feature/}'
@@ -100,7 +100,7 @@ alias gta='git tag -a -m'
 alias gf='git reflog'
 alias gt='git log --graph --pretty=oneline --abbrev-commit'
 alias grenew='gpu --rebase && gcdpc && grd && gp -f'
-alias gremovemerged='git checkout develop && git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
+alias gremovemerged='git checkout develop && git branch --merged | grep -v "\*" | xargs -n 1 git branch -d && git fetch --prune'
 
 # leverage an alias from the ~/.gitconfig
 alias gh='git hist'
@@ -108,6 +108,7 @@ alias glg1='git lg1'
 alias glg2='git lg2'
 alias glg='git lg'
  
+alias dpa='docker-compose exec workspace php artisan'
 
 # -------------------------------------------------------------------
 # Git aliases
@@ -122,6 +123,11 @@ alias drmall='docker rm $(docker ps -a -q)'
 alias dc='docker-compose'
 alias dcu='docker-compose up'
 alias dcd='docker-compose down'
+
+alias k='kubectl'
+
+alias cw='cd ~/wuming/WeChatCasino'
+alias cg='cd ~/go/src/ChannelManager'
 
 # git helper
 function addAndStatus() { git add -A "$@"; git status; }
@@ -155,21 +161,17 @@ function myip() {
 
 
 # -------------------------------------------------------------------
-# NVM SETTING 
-# -------------------------------------------------------------------
-export NVM_DIR="$HOME/.nvm"
-. "$(brew --prefix nvm)/nvm.sh"
-
-# -------------------------------------------------------------------
-# PHP SETTING 
-# -------------------------------------------------------------------
-export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
-
-source /usr/local/opt/nvm/nvm.sh
-# -------------------------------------------------------------------
 # GO bin SETTING 
 # -------------------------------------------------------------------
 export GOPATH=~/go
 export PATH=$PATH:$GOPATH/bin
 
-export PATH=/Users/ming-changsung/.nvm/versions/node/v6.0.0/bin:/usr/local/Cellar/php56/5.6.31_7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin:/Users/ming-changsung/.composer/vendor/bin:/Users/ming-changsung/go/bin:/Users/ming-changsung/.vimpkg/bin
+export PATH=$HOME/.composer/vendor/bin:/Users/ming-changsung/.nvm/versions/node/v6.0.0/bin:/usr/local/Cellar/php56/5.6.31_7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin:/Users/ming-changsung/.composer/vendor/bin:/Users/ming-changsung/go/bin:/Users/ming-changsung/.vimpkg/bin
+export PATH="/usr/local/opt/php@7.1/bin:$PATH"
+export PATH="/usr/local/opt/php@7.1/sbin:$PATH"
+
+# -------------------------------------------------------------------
+# NVM SETTING 
+# -------------------------------------------------------------------
+export NVM_DIR="$HOME/.nvm"
+. "$(brew --prefix nvm)/nvm.sh"
