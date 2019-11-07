@@ -163,15 +163,15 @@ function myip() {
 # -------------------------------------------------------------------
 # GO bin SETTING 
 # -------------------------------------------------------------------
-export GOPATH=~/go
-export PATH=$PATH:$GOPATH/bin
+#export GOPATH=~/go
+#export PATH=$PATH:$GOPATH/bin
 
-export PATH=$HOME/.composer/vendor/bin:/Users/ming-changsung/.nvm/versions/node/v6.0.0/bin:/usr/local/Cellar/php56/5.6.31_7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin:/Users/ming-changsung/.composer/vendor/bin:/Users/ming-changsung/go/bin:/Users/ming-changsung/.vimpkg/bin
-export PATH="/usr/local/opt/php@7.1/bin:$PATH"
-export PATH="/usr/local/opt/php@7.1/sbin:$PATH"
+#export PATH=$HOME/.composer/vendor/bin:/Users/ming-changsung/.nvm/versions/node/v6.0.0/bin:/usr/local/Cellar/php56/5.6.31_7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin:/Users/ming-changsung/.composer/vendor/bin:/Users/ming-changsung/go/bin:/Users/ming-changsung/.vimpkg/bin
+#export PATH="/usr/local/opt/php@7.1/bin:$PATH"
+#export PATH="/usr/local/opt/php@7.1/sbin:$PATH"
 
 # -------------------------------------------------------------------
 # NVM SETTING 
 # -------------------------------------------------------------------
-export NVM_DIR="$HOME/.nvm"
-. "$(brew --prefix nvm)/nvm.sh"
+#export NVM_DIR="$HOME/.nvm"
+#. "$(brew --prefix nvm)/nvm.sh"
