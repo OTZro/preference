@@ -109,7 +109,7 @@ alias gta='git tag -a -m'
 alias gf='git reflog'
 alias gt='git log --graph --pretty=oneline --abbrev-commit'
 alias grenew='gpu --rebase && gcdpc && grd && gp -f'
-alias gremovemerged='git checkout develop && git branch --merged | grep -v "\*" | xargs -n 1 git branch -d && git fetch --prune'
+alias gremovemerged='git checkout develop && git branch --merged | grep -v "\*" | grep "/" | xargs -n 1 git branch -d && git fetch --prune'
 
 # leverage an alias from the ~/.gitconfig
 alias gh='git hist'
