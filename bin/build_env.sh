@@ -4,7 +4,7 @@ absPath(){
     if [[ -d "$1" ]]; then
         cd "$1"
         echo "$(pwd -P)"
-    else 
+    else
         cd "$(dirname "$1")"
         echo "$(pwd -P)/$(basename "$1")"
     fi
@@ -18,4 +18,5 @@ if [[ -s "~/.zshrc" ]] ; then
     mv ~/.zshrc ~/.zshrc.bac
 fi
 ln -s ${SCRIPTPATH}/../.zshrc ~/.zshrc
+ln -s ${SCRIPTPATH}/../.tigrc ~/.tigrc
 ln -s ${SCRIPTPATH}/../com.hegenberg.BetterTouchTool.plist ~/Library/Preferences/com.hegenberg.BetterTouchTool.plist

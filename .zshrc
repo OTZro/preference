@@ -34,7 +34,7 @@ plugins=(git zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
  
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin:/usr/local/go/bin
 export PATH="$PATH:/Users/ming-changsung/.composer/vendor/bin"
 ZSH_THEME_GIT_PROMPT_PREFIX="on %{$fg[magenta]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
@@ -62,6 +62,15 @@ function git_prompt_info() {
   echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$ZSH_THEME_GIT_PROMPT_SUFFIX"
 }
 
+bindkey "\e\e[D" backward-word
+bindkey "\e\e[C" forward-word
+
+# -------------------------------------------------------------------
+# Pyenv Setting
+# -------------------------------------------------------------------
+#export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # -------------------------------------------------------------------
 # Git aliases
@@ -111,7 +120,7 @@ alias glg='git lg'
 alias dpa='docker-compose exec workspace php artisan'
 
 # -------------------------------------------------------------------
-# Git aliases
+# Docke aliases
 # -------------------------------------------------------------------
 
 alias dps='docker ps'
@@ -126,23 +135,15 @@ alias dcd='docker-compose down'
 
 alias k='kubectl'
 
-alias cw='cd ~/wuming/WeChatCasino'
-alias cg='cd ~/go/src/ChannelManager'
-
 # git helper
 function addAndStatus() { git add -A "$@"; git status; }
 
-# -------------------------------------------------------------------
-# Capistrano aliases
-# -------------------------------------------------------------------
- 
-alias capd='cap deploy'
- 
 # -------------------------------------------------------------------
 # OTHER aliases
 # -------------------------------------------------------------------
  
 alias cl='clear'
+alias pm='python manage.py'
  
  
 
@@ -163,8 +164,8 @@ function myip() {
 # -------------------------------------------------------------------
 # GO bin SETTING 
 # -------------------------------------------------------------------
-#export GOPATH=~/go
-#export PATH=$PATH:$GOPATH/bin
+export GOPATH=~/go
+export PATH=$PATH:$GOPATH/bin
 
 #export PATH=$HOME/.composer/vendor/bin:/Users/ming-changsung/.nvm/versions/node/v6.0.0/bin:/usr/local/Cellar/php56/5.6.31_7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin:/Users/ming-changsung/.composer/vendor/bin:/Users/ming-changsung/go/bin:/Users/ming-changsung/.vimpkg/bin
 #export PATH="/usr/local/opt/php@7.1/bin:$PATH"
@@ -173,5 +174,11 @@ function myip() {
 # -------------------------------------------------------------------
 # NVM SETTING 
 # -------------------------------------------------------------------
-#export NVM_DIR="$HOME/.nvm"
-#. "$(brew --prefix nvm)/nvm.sh"
+export NVM_DIR="$HOME/.nvm"
+. "$(brew --prefix nvm)/nvm.sh"
+
+# -------------------------------------------------------------------
+# Working setting 
+# -------------------------------------------------------------------
+
+alias cf='cd ~/gofreight/fms'
