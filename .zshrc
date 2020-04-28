@@ -40,6 +40,7 @@ ZSH_THEME_GIT_PROMPT_PREFIX="on %{$fg[magenta]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}!"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[green]%}?"
+RPROMPT='$(_vi_status)%{$(echotc UP 1)%}%t $(git_prompt_status) ${_return_status}%{$(echotc DO 1)%}'
 #ZSH_THEME_GIT_PROMPT_CLEAN=""
 #autoload predict-on 
 
@@ -85,6 +86,7 @@ alias ts='tig status'
 alias gd='git diff'
 alias gds='git diff --cached'
 alias gm='git commit -m'
+alias gnm='git commit -n -m'
 alias gma='git commit --amend --no-edit'
 alias gmar='git commit --amend'
 alias gb='git branch'
@@ -110,6 +112,14 @@ alias gf='git reflog'
 alias gt='git log --graph --pretty=oneline --abbrev-commit'
 alias grenew='gpu --rebase && gcdpc && grd && gp -f'
 alias gremovemerged='git checkout develop && git branch --merged | grep -v "\*" | grep "/" | xargs -n 1 git branch -d && git fetch --prune'
+alias gfinish='current=$(git rev-parse --abbrev-ref HEAD) && gcd && git merge $current && gb -d $current && git push origin --delete $current'
+
+
+alias gofinish='current=$(git rev-parse --abbrev-ref HEAD) && gco && git merge $current && gb -d $current && git push origin --delete $current'
+alias gco='git checkout olc-develop'
+alias gro='git rebase olc-develop'
+alias gcop='git checkout olc-develop && git pull --rebase'
+alias gcopc='current=$(git rev-parse --abbrev-ref HEAD) && gcop && gc $current'
 
 # leverage an alias from the ~/.gitconfig
 alias gh='git hist'
@@ -175,6 +185,7 @@ export PATH=$PATH:$GOPATH/bin
 # NVM SETTING 
 # -------------------------------------------------------------------
 export NVM_DIR="$HOME/.nvm"
+export NVM_SYMLINK_CURRENT=true
 . "$(brew --prefix nvm)/nvm.sh"
 
 # -------------------------------------------------------------------
@@ -182,3 +193,9 @@ export NVM_DIR="$HOME/.nvm"
 # -------------------------------------------------------------------
 
 alias cf='cd ~/gofreight/fms'
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+# Fix GoFreight reset_db "RE error: illegal byte sequence" bug
+#export LC_CTYPE=C 
+#export LANG=C
