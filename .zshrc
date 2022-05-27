@@ -36,6 +36,9 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin:/usr/local/go/bin
 export PATH="$PATH:/Users/ming-changsung/.composer/vendor/bin"
+export PATH="$PATH:/usr/local/mysql/bin"
+export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
+export PATH=$PATH:~/.platformio/penv/bin
 ZSH_THEME_GIT_PROMPT_PREFIX="on %{$fg[magenta]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}!"
@@ -70,6 +73,7 @@ bindkey "\e\e[C" forward-word
 # Pyenv Setting
 # -------------------------------------------------------------------
 #export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
@@ -95,7 +99,8 @@ alias gst='git stash'
 alias gstp='git stash pop'
 alias gcd='git checkout develop'
 alias gcdp='git checkout develop && git pull --rebase'
-alias gffs='git flow feature start'
+alias gffs='gcdp && git flow feature start'
+alias gffc='git flow feature checkout'
 alias gffp='git flow feature publish'
 alias gffpc='gffp ${$(git rev-parse --abbrev-ref HEAD)#feature/}'
 alias gstart='gcdp && gffs'
@@ -109,17 +114,13 @@ alias gpur='git pull --rebase'
 alias gcl='git clone'
 alias gta='git tag -a -m'
 alias gf='git reflog'
+# git recent work
+alias grw="git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:             green)%(committerdate:relative)%(color:reset))'"
 alias gt='git log --graph --pretty=oneline --abbrev-commit'
 alias grenew='gpu --rebase && gcdpc && grd && gp -f'
 alias gremovemerged='git checkout develop && git branch --merged | grep -v "\*" | grep "/" | xargs -n 1 git branch -d && git fetch --prune'
 alias gfinish='current=$(git rev-parse --abbrev-ref HEAD) && gcd && git merge $current && gb -d $current && git push origin --delete $current'
 
-
-alias gofinish='current=$(git rev-parse --abbrev-ref HEAD) && gco && git merge $current && gb -d $current && git push origin --delete $current'
-alias gco='git checkout olc-develop'
-alias gro='git rebase olc-develop'
-alias gcop='git checkout olc-develop && git pull --rebase'
-alias gcopc='current=$(git rev-parse --abbrev-ref HEAD) && gcop && gc $current'
 
 # leverage an alias from the ~/.gitconfig
 alias gh='git hist'
@@ -128,6 +129,11 @@ alias glg2='git lg2'
 alias glg='git lg'
  
 alias dpa='docker-compose exec workspace php artisan'
+
+# Ignore tracking file in git
+alias gignore='git update-index --skip-worktree'
+alias gunignore='git update-index --no-skip-worktree'
+alias gignored='git ls-files -v|grep ^S'
 
 # -------------------------------------------------------------------
 # Docke aliases
@@ -154,6 +160,7 @@ function addAndStatus() { git add -A "$@"; git status; }
  
 alias cl='clear'
 alias pm='python manage.py'
+alias p='python'
  
  
 
@@ -193,9 +200,29 @@ export NVM_SYMLINK_CURRENT=true
 # -------------------------------------------------------------------
 
 alias cf='cd ~/gofreight/fms'
+alias cg='cd ~/gofreight/go-payment'
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+export NODE_OPTIONS="--max-old-space-size=4096"
 
 # Fix GoFreight reset_db "RE error: illegal byte sequence" bug
 #export LC_CTYPE=C 
 #export LANG=C
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/chang/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/chang/opt/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/chang/opt/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/chang/opt/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
