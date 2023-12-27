@@ -34,7 +34,7 @@ plugins=(git zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
  
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin:/usr/local/go/bin
+export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin:/usr/local/go/bin"
 export PATH="$PATH:/Users/ming-changsung/.composer/vendor/bin"
 export PATH="$PATH:/usr/local/mysql/bin"
 export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
@@ -43,7 +43,7 @@ ZSH_THEME_GIT_PROMPT_PREFIX="on %{$fg[magenta]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}!"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[green]%}?"
-RPROMPT='$(_vi_status)%{$(echotc UP 1)%}%t $(git_prompt_status) ${_return_status}%{$(echotc DO 1)%}'
+RPROMPT='$(vi_mode_prompt_info)%{$(echotc UP 1)%}%t $(git_prompt_status) ${_return_status}%{$(echotc DO 1)%}'
 #ZSH_THEME_GIT_PROMPT_CLEAN=""
 #autoload predict-on 
 
@@ -72,10 +72,24 @@ bindkey "\e\e[C" forward-word
 # -------------------------------------------------------------------
 # Pyenv Setting
 # -------------------------------------------------------------------
-#export PATH="$HOME/.pyenv/bin:$PATH"
+# export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
+
+# -------------------------------------------------------------------
+# Pyenv Setting
+# -------------------------------------------------------------------
+export PATH=$PATH:$HOME/.local/bin
+
+
+# -------------------------------------------------------------------
+# Brew Setting
+# -------------------------------------------------------------------
+eval "$(/opt/homebrew/bin/brew shellenv)"
+alias ibrew="arch -x86_64 /usr/local/bin/brew"
 
 # -------------------------------------------------------------------
 # Git aliases
@@ -98,17 +112,26 @@ alias gc='git checkout'
 alias gst='git stash'
 alias gstp='git stash pop'
 alias gcd='git checkout develop'
+alias gcs='git checkout stage'
+alias gcm='git checkout main'
 alias gcdp='git checkout develop && git pull --rebase'
+alias gcsp='git checkout stage && git pull --rebase'
+alias gcmp='git checkout main && git pull --rebase'
 alias gffs='gcdp && git flow feature start'
 alias gffc='git flow feature checkout'
 alias gffp='git flow feature publish'
 alias gffpc='gffp ${$(git rev-parse --abbrev-ref HEAD)#feature/}'
 alias gstart='gcdp && gffs'
 alias gcdpc='current=$(git rev-parse --abbrev-ref HEAD) && gcdp && gc $current'
+alias gcspc='current=$(git rev-parse --abbrev-ref HEAD) && gcsp && gc $current'
+alias gcmpc='current=$(git rev-parse --abbrev-ref HEAD) && gcmp && gc $current'
 alias gfff='git flow feature finish '
 alias gfffc='gfff ${$(git rev-parse --abbrev-ref HEAD)#feature/}'
-alias gr='git rebase'
+alias gr='git reset'
+alias grb='git rebase'
 alias grd='git rebase develop'
+alias grs='git rebase stage'
+alias grm='git rebase main'
 alias gpu='git pull'
 alias gpur='git pull --rebase'
 alias gcl='git clone'
@@ -162,7 +185,11 @@ alias cl='clear'
 alias pm='python manage.py'
 alias p='python'
  
- 
+
+# -------------------------------------------------------------------
+# AWS Login
+# -------------------------------------------------------------------
+aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 478041131377.dkr.ecr.us-west-2.amazonaws.com
 
 # -------------------------------------------------------------------
 # FUNCTIONS
@@ -191,9 +218,34 @@ export PATH=$PATH:$GOPATH/bin
 # -------------------------------------------------------------------
 # NVM SETTING 
 # -------------------------------------------------------------------
+#export NVM_DIR="$HOME/.nvm"
+#export NVM_SYMLINK_CURRENT=true
+#. "$(brew --prefix nvm)/nvm.sh"
 export NVM_DIR="$HOME/.nvm"
-export NVM_SYMLINK_CURRENT=true
-. "$(brew --prefix nvm)/nvm.sh"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# place this after nvm initialization!
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
 
 # -------------------------------------------------------------------
 # Working setting 
@@ -226,3 +278,4 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
